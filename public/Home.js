@@ -6,20 +6,17 @@ let eyeColor = "#000000";
 let eyeballColor = "#000000";
 
 // Check session and show/hide user section
-fetch('/session')
-  .then(res => res.json())
-  .then(data => {
-    if (data.loggedIn) {
-      document.getElementById('save-btn').style.display = 'inline-block';
-      document.getElementById('user-section').style.display = 'block';
-      loadUserConfigs(data.user.id);
-    } else {
-      // If not logged in, hide everything and optionally redirect
-      document.getElementById('save-btn').style.display = 'none';
-      document.getElementById('user-section').style.display = 'none';
-    }
-  })
-  .catch(err => console.error('Session check failed:', err));
+async function checkUser() {
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (user) {
+    document.getElementById('save-btn').style.display = 'inline-block';
+    document.getElementById('user-section').style.display = 'block';
+    loadUserConfigs(user.id);
+  }
+}
+
+checkUser();
 
 // Create Pickr instances and store them in variables
 function createPickr(selector, defaultColor, onSave) {
