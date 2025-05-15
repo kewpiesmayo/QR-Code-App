@@ -4,10 +4,7 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const { createClient } = require('@supabase/supabase-js');
-
 const app = express();
-const router = express.Router();
-
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
 // Middleware
