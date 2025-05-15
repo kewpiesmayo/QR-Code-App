@@ -19,7 +19,8 @@ const supabase = createClient(
 
 // Middleware
 app.use(bodyParser.json());
-app.use(express.static(__dirname));
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'your_secret_key', // Change this to something secure
   saveUninitialized: false,
