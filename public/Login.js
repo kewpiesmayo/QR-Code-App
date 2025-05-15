@@ -8,7 +8,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
     return;
   }
 
-  const res = await fetch('/login', {
+  const res = await fetch('/api/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password })
@@ -34,7 +34,7 @@ document.getElementById('signup-btn').addEventListener('click', async () => {
     return;
   }
 
-  const res = await fetch('/signup', {
+  const res = await fetch('/api/signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ first_name, last_name, username, password })
@@ -44,19 +44,19 @@ document.getElementById('signup-btn').addEventListener('click', async () => {
   document.getElementById('status').innerText = result.message || result.error;
 });
 
-//LOGOUT BUTTON HANDLER
+// LOGOUT BUTTON HANDLER
 const logoutBtn = document.getElementById('logout-btn');
 if (logoutBtn) {
   logoutBtn.addEventListener('click', async () => {
     try {
-      const res = await fetch('/logout', {
+      const res = await fetch('/api/logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
 
       const result = await res.json();
       alert(result.message || result.error);
-      window.location.reload(); 
+      window.location.reload();
     } catch (err) {
       console.error('Logout failed:', err);
     }
