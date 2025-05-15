@@ -8,7 +8,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
     return;
   }
 
-  const res = await fetch('/api/login', {
+  const res = await fetch('/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password })
@@ -18,7 +18,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
   document.getElementById('status').innerText = result.message || result.error;
 
   if (res.ok) {
-    window.location.href = 'index.html';
+    window.location.href = 'index.html'; // ✅ Redirect on successful login
   }
 });
 
@@ -34,7 +34,7 @@ document.getElementById('signup-btn').addEventListener('click', async () => {
     return;
   }
 
-  const res = await fetch('/api/signup', {
+  const res = await fetch('/signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ first_name, last_name, username, password })
@@ -44,19 +44,19 @@ document.getElementById('signup-btn').addEventListener('click', async () => {
   document.getElementById('status').innerText = result.message || result.error;
 });
 
-// LOGOUT BUTTON HANDLER
+// ✅ LOGOUT BUTTON HANDLER (moved OUTSIDE signup block)
 const logoutBtn = document.getElementById('logout-btn');
 if (logoutBtn) {
   logoutBtn.addEventListener('click', async () => {
     try {
-      const res = await fetch('/api/logout', {
+      const res = await fetch('/logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
 
       const result = await res.json();
       alert(result.message || result.error);
-      window.location.reload();
+      window.location.reload(); // Refresh to reflect logout
     } catch (err) {
       console.error('Logout failed:', err);
     }
