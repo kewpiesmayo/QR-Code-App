@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator About Me</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="About me.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Help.html">FAQ</a></li>
+            <li><a href="About Me.html">About Me</a></li>
+            <li id="login"><a href="Login.html">Login</a></li>
+        </ul>
+    </nav>
+    <h1>About This Project</h1>
+
+    <div class="section">
+        <h2>📌 Mission Statement</h2>
+        <p>
+            Our mission is to provide an intuitive and fully customizable QR code generator that empowers
+            businesses and individuals to create unique, scannable experiences. By bridging technology
+            and convenience, our web-based app reduces reliance on printed materials and streamlines
+            access to information.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>💡 Why This Matters</h2>
+        <p>
+            Traditional methods of information sharing—like printed menus, flyers, or signage—can be
+            costly and hard to update. QR codes offer a smart, eco-friendly alternative that lets users
+            instantly connect to websites, promotions, menus, or social media.
+        </p>
+        <p>
+            Our tool lets users create beautiful, on-brand QR codes with real-time customization,
+            removing the limits of plain black-and-white designs.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>🛠️ Tools & Technology</h2>
+        <ul>
+            <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+            <li><strong>API:</strong> QRCode Monkey – for powerful, high-level QR customization</li>
+            <li><strong>Library:</strong> QRCode Monkey – for powerful, high-level QR customization</li>
+            <li><strong>Backend:</strong> User authentication system and database for storing user QR code history and
+                settings</li>
+        </ul>
+    </div>
+    <script>
+        // Check login session
+        fetch('/session')
+            .then(res => res.json())
+            .then(data => {
+                if (data.loggedIn) {
+                    document.getElementById('save-btn').style.display = 'inline-block';
+                    document.getElementById('user-section').style.display = 'block';
+                    loadUserConfigs(data.user.id);
+                } else {
+                    // If not logged in, hide everything and optionally redirect
+                    document.getElementById('save-btn').style.display = 'none';
+                    document.getElementById('user-section').style.display = 'none';
+                }
+            })
+            .catch(err => console.error('Session check failed:', err));
+
+
+    </script>
+</body>
+
+</html>

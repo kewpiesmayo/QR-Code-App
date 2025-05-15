@@ -1,0 +1,28 @@
+{
+  "name": "qr-code-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e '*'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kewpiesmayo/QR-Code-App.git"
+  },
+  "author": "Jerry Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kewpiesmayo/QR-Code-App/issues"
+  },
+  "homepage": "https://github.com/kewpiesmayo/QR-Code-App#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "usa-state-validator": "^1.0.6"
+  }
+}

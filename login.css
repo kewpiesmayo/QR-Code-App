@@ -1,0 +1,61 @@
+
+
+.login-container {
+  max-width: 300px;
+  margin: 60px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: auto;
+  padding: 8px;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+button {
+  flex: 1;
+  padding: 8px;
+  font-size: 13px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#logout-btn {
+  margin-top: 15px;
+  background-color: #dc3545;
+  width: 100%;
+}
+
+#status {
+  margin-top: 10px;
+  color: red;
+  font-size: 13px;
+}
+
+#welcome-msg {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}

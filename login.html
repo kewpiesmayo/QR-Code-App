@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <nav id="navbar">
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Help.html">FAQ</a></li>
+      <li><a href="About Me.html">About Me</a></li>
+      <li id="login"><a href="Login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <div class="login-container">
+    <h2>Login or Sign Up</h2>
+
+    <!-- Input Fields -->
+    <input type="text" id="first-name" placeholder="First Name (Sign up only)" /><br>
+    <input type="text" id="last-name" placeholder="Last Name (Sign up only)" /><br>
+    <input type="text" id="username" placeholder="Username" /><br>
+    <input type="password" id="password" placeholder="Password" /><br>
+
+    <!-- Buttons -->
+    <button id="login-btn">Login</button>
+    <button id="signup-btn">Sign Up</button>
+
+    <!-- Status Message -->
+    <div id="status"></div>
+
+    <!-- Optional welcome message after session check -->
+    <div id="welcome-msg" style="margin-top: 10px;"></div>
+    <!-- Logout Button -->
+    <button id="logout-btn" style="display: none;">Logout</button>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="login.js"></script>
+  <script>
+    // Session check logic
+    fetch('/session')
+      .then(res => res.json())
+      .then(data => {
+        if (data.loggedIn) {
+          document.getElementById('welcome-msg').textContent = `Welcome back, ${data.user.first_name}!`;
+          document.getElementById('logout-btn').style.display = 'inline-block';
+        }
+      })
+      .catch(err => console.error('Session check failed:', err));
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+
+
+.main-container {
+  display: flex;
+  justify-content: space-between; /* Ensure space between container and qr-result */
+  gap: 20px; /* Adds a small gap between the two elements */
+}
+
+.container {
+  flex: 1; /* Takes up remaining space on the left */
+  max-width: 500px;
+  background: rgb(200, 212, 228);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+select,
+input[type="file"],
+input[type="color"] {
+  width: 100%;
+  padding: 6px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#qr-result {
+  display: flex;
+  justify-content: center; /* Center the QR code horizontally */
+  align-items: center; /* Center the QR code vertically */
+  flex: 1; /* Takes up remaining space on the right */
+  margin-top: 20px;
+  border: 1px solid #ccc; /* Border around qr-result */
+  padding: 10px; /* Optional padding for spacing inside the box */
+}
+
+#qr-result img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border: none; /* Remove the border around the image */
+}

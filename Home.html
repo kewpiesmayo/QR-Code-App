@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="Home.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+</head>
+
+<body>
+  <nav id="navbar">
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Help.html">FAQ</a></li>
+      <li><a href="About Me.html">About Me</a></li>
+      <li id="login"><a href="Login.html">Login</a></li>
+    </ul>
+  </nav>
+  <div class="main-container">
+    <div class="container">
+      <h1>QR Code Generator</h1>
+
+      <label for="url-input">Enter URL:</label>
+      <input type="text" id="url-input" placeholder="https://example.com" />
+
+      <label>Body Color:</label>
+      <div class="pickrColor" id="qr-color-picker"></div>
+
+      <label>Background Color:</label>
+      <div class="pickrColor" id="bg-color-picker"></div>
+
+      <label for="gradient-type">Gradient Type:</label>
+      <select id="gradient-type">
+        <option value="">None</option>
+        <option value="linear">Linear</option>
+        <option value="radial">Radial</option>
+      </select>
+
+      <label for="gradient-color1">Gradient Color 1:</label>
+      <div class="pickrColor" id="gradient-color1"></div>
+
+      <label for="gradient-color2">Gradient Color 2:</label>
+      <div class="pickrColor" id="gradient-color2"></div>
+
+      <label for="body-shape">Body Shape:</label>
+      <select id="body-shape" style="width: 100%">
+        <option value="square" data-image="https://www.qrcode-monkey.com/img/qr/body/square.png">Square</option>
+        <option value="mosaic" data-image="https://www.qrcode-monkey.com/img/qr/body/mosaic.png">Mosaic</option>
+        <option value="dot" data-image="https://www.qrcode-monkey.com/img/qr/body/dot.png">Dot</option>
+        <option value="circle" data-image="https://www.qrcode-monkey.com/img/qr/body/circle.png">Circle</option>
+        <option value="circle-zebra" data-image="https://www.qrcode-monkey.com/img/qr/body/circle-zebra.png">Circle
+          Zebra</option>
+        <option value="circle-zebra-vertical"
+          data-image="https://www.qrcode-monkey.com/img/qr/body/circle-zebra-vertical.png">Circle Zebra Vertical
+        </option>
+        <option value="circular" data-image="https://www.qrcode-monkey.com/img/qr/body/circular.png">Circular</option>
+        <option value="edge-cut" data-image="https://www.qrcode-monkey.com/img/qr/body/edge-cut.png">Edge Cut</option>
+        <option value="edge-cut-smooth" data-image="https://www.qrcode-monkey.com/img/qr/body/edge-cut-smooth.png">Edge
+          Cut Smooth</option>
+        <option value="japnese" data-image="https://www.qrcode-monkey.com/img/qr/body/japnese.png">Japnese</option>
+        <option value="leaf" data-image="https://www.qrcode-monkey.com/img/qr/body/leaf.png">Leaf</option>
+        <option value="pointed" data-image="https://www.qrcode-monkey.com/img/qr/body/pointed.png">Pointed</option>
+        <option value="pointed-edge-cut" data-image="https://www.qrcode-monkey.com/img/qr/body/pointed-edge-cut.png">
+          Pointed Edge Cut</option>
+        <option value="pointed-in" data-image="https://www.qrcode-monkey.com/img/qr/body/pointed-in.png">Pointed In
+        </option>
+        <option value="pointed-in-smooth" data-image="https://www.qrcode-monkey.com/img/qr/body/pointed-in-smooth.png">
+          Pointed In Smooth</option>
+        <option value="pointed-smooth" data-image="https://www.qrcode-monkey.com/img/qr/body/pointed-smooth.png">Pointed
+          Smooth</option>
+        <option value="round" data-image="https://www.qrcode-monkey.com/img/qr/body/round.png">Round</option>
+        <option value="rounded-in" data-image="https://www.qrcode-monkey.com/img/qr/body/rounded-in.png">Rounded In
+        </option>
+        <option value="rounded-in-smooth" data-image="https://www.qrcode-monkey.com/img/qr/body/rounded-in-smooth.png">
+          Rounded In Smooth</option>
+        <option value="rounded-pointed" data-image="https://www.qrcode-monkey.com/img/qr/body/rounded-pointed.png">
+          Rounded Pointed</option>
+        <option value="star" data-image="https://www.qrcode-monkey.com/img/qr/body/star.png">Star</option>
+        <option value="diamond" data-image="https://www.qrcode-monkey.com/img/qr/body/diamond.png">Diamond</option>
+      </select>
+
+      <label for="eye-frame-shape">Eye Frame Shape:</label>
+      <select id="eye-frame-shape">
+        <option value="frame0" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame0.png">Frame 0</option>
+        <option value="frame1" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame1.png">Frame 1</option>
+        <option value="frame2" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame2.png">Frame 2</option>
+        <option value="frame3" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame3.png">Frame 3</option>
+        <option value="frame4" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame4.png">Frame 4</option>
+        <option value="frame5" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame5.png">Frame 5</option>
+        <option value="frame6" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame6.png">Frame 6</option>
+        <option value="frame7" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame7.png">Frame 7</option>
+        <option value="frame8" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame8.png">Frame 8</option>
+        <option value="frame9" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame9.png">Frame 9</option>
+        <option value="frame10" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame10.png">Frame 10
+        </option>
+        <option value="frame11" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame11.png">Frame 11
+        </option>
+        <option value="frame12" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame12.png">Frame 12
+        </option>
+        <option value="frame13" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame13.png">Frame 13
+        </option>
+        <option value="frame14" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame14.png">Frame 14
+        </option>
+        <option value="frame15" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame15.png">Frame 15
+        </option>
+        <option value="frame16" data-image="https://www.qrcode-monkey.com/img/qr/eye-frames/frame16.png">Frame 16
+        </option>
+      </select>
+
+      <label for="eye-ball-shape">Eye Ball Shape:</label>
+      <select id="eye-ball-shape">
+        <option value="ball0" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball0.png">Ball 0</option>
+        <option value="ball1" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball2.png">Ball 1</option>
+        <option value="ball2" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball3.png">Ball 2</option>
+        <option value="ball3" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball4.png">Ball 3</option>
+        <option value="ball5" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball5.png">Ball 5</option>
+        <option value="ball6" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball6.png">Ball 6</option>
+        <option value="ball7" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball7.png">Ball 7</option>
+        <option value="ball8" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball8.png">Ball 8</option>
+        <option value="ball9" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball9.png">Ball 9</option>
+        <option value="ball10" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball10.png">Ball 10</option>
+        <option value="ball11" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball11.png">Ball 11</option>
+        <option value="ball12" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball12.png">Ball 12</option>
+        <option value="ball13" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball13.png">Ball 13</option>
+        <option value="ball14" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball14.png">Ball 14</option>
+        <option value="ball15" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball15.png">Ball 15</option>
+        <option value="ball16" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball16.png">Ball 16</option>
+        <option value="ball17" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball17.png">Ball 17</option>
+        <option value="ball18" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball18.png">Ball 18</option>
+        <option value="ball19" data-image="https://www.qrcode-monkey.com/img/qr/eye-balls/ball19.png">Ball 19</option>
+      </select>
+
+      <label for="eye-color">Eye Color (1-3):</label>
+      <div class="pickrColor" id="eye-color"></div>
+
+      <label for="eyeball-color">Eyeball Color (1-3):</label>
+      <div class="pickrColor" id="eyeball-color"></div>
+
+      <label for="logo-mode">Logo Mode:</label>
+      <select id="logo-mode">
+        <option value="default">Default</option>
+        <option value="clean">Clean</option>
+      </select>
+
+      <label for="logo-upload">URL of Logo Image:</label>
+      <input type="text" id="url-logo" placeholder="https://example.com" />
+
+      <button id="generate-btn">Generate QR Code</button>
+
+
+    </div>
+    <div id="qr-result">
+      <img id="qr-image" alt="Your QR Code will appear here" />
+    </div>
+  </div>
+
+  <button id="save-btn" style="display: none;">Save to Account</button>
+
+  <div id="user-section" style="display: none; margin-top: 40px;">
+    <h2>Your Saved QR Codes</h2>
+    <div id="saved-list"></div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+  <script src="Home.js"></script>
+</body>
+
+</html>
