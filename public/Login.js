@@ -18,7 +18,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
   document.getElementById('status').innerText = result.message || result.error;
 
   if (res.ok) {
-    window.location.href = 'Home.html'; // ✅ Redirect on successful login
+    window.location.href = 'index.html'; // ✅ Redirect on successful login
   }
 });
 

@@ -1,21 +1,21 @@
 
-
 const express = require('express');
+const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const { createClient } = require('@supabase/supabase-js');
-const { isValidStateAbbreviation } = require('usa-state-validator');
-require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const router = express.Router();
 
-// Supabase setup
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY
-);
+app.use(bodyParser.json());
+app.use(session({
+  secret: 'your_secret_key',
+  saveUninitialized: false,
+  cookie: { secure: false }
+}));
 
 // Middleware
 app.use(bodyParser.json());
