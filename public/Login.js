@@ -1,4 +1,4 @@
-// LOGIN BUTTON HANDLER
+//login button
 document.getElementById('login-btn')?.addEventListener('click', async () => {
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value;
@@ -24,7 +24,6 @@ document.getElementById('login-btn')?.addEventListener('click', async () => {
   document.getElementById('save-btn').style.display = 'inline-block';
   document.getElementById('welcome-msg').textContent = `Welcome, ${result.user?.first_name || username}!`;
 
-  // ✅ Safely get user from session if not included in login response
   const sessionRes = await fetch('/session');
   const sessionData = await sessionRes.json();
   if (sessionData.loggedIn) {
@@ -36,7 +35,7 @@ document.getElementById('login-btn')?.addEventListener('click', async () => {
 
 });
 
-// SIGNUP BUTTON HANDLER
+//Sign up button
 document.getElementById('signup-btn')?.addEventListener('click', async () => {
   const first_name = document.getElementById('first-name').value.trim();
   const last_name = document.getElementById('last-name').value.trim();
@@ -67,13 +66,13 @@ document.getElementById('signup-btn')?.addEventListener('click', async () => {
     const sessionRes = await fetch('/session');
     const sessionData = await sessionRes.json();
     if (sessionData.loggedIn) {
-      loadUserConfigs(sessionData.user.id); // ✅ load saved configs after signup
+      loadUserConfigs(sessionData.user.id); 
     }
   }
 
 });
 
-// ✅ LOGOUT BUTTON HANDLER
+//Logout Button
 document.getElementById('logout-btn')?.addEventListener('click', async () => {
   try {
     const res = await fetch('/logout', {
@@ -83,7 +82,7 @@ document.getElementById('logout-btn')?.addEventListener('click', async () => {
 
     const result = await res.json();
     alert(result.message || result.error);
-    window.location.reload(); // Refresh to reflect logout
+    window.location.reload();
   } catch (err) {
     console.error('Logout failed:', err);
   }

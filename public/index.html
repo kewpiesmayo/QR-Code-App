@@ -23,7 +23,7 @@
       <li id="login"><a href="login.html">Login</a></li>
     </ul>
   </nav>
-  <!-- Place this after <nav> -->
+
   <div class="login-container" id="login-container">
     <div id="login-fields">
       <h2>Login or Sign Up</h2>
@@ -193,7 +193,7 @@
       document.getElementById('welcome-msg').textContent = `Welcome back, ${data.user.first_name}!`;
       document.getElementById('logout-btn').style.display = 'inline-block';
       document.getElementById('login-fields').style.display = 'none';
-      document.getElementById('user-section').style.display = 'block'; // ✅ SHOW THE SECTION
+      document.getElementById('user-section').style.display = 'block';
     }
   })
 

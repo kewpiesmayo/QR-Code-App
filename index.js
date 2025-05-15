@@ -15,9 +15,9 @@ app.use(bodyParser.json());
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: 'your_secret_key', // Change this to something secure
+  secret: 'your_secret_key',
   saveUninitialized: false,
-  cookie: { secure: false } // set to true if using HTTPS
+  cookie: { secure: false } 
 }));
 // SIGNUP
 app.post('/signup', async (req, res) => {
@@ -49,7 +49,7 @@ app.post('/signup', async (req, res) => {
   res.json({ message: 'Signup successful! You can now log in.' });
 });
 
-// LOGIN
+// login
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -92,13 +92,13 @@ app.post('/login', async (req, res) => {
 });
 
 
-// LOGOUT
+// logout
 app.post('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
       return res.status(500).json({ error: 'Logout failed' });
     }
-    res.clearCookie('connect.sid'); // Important: clear cookie
+    res.clearCookie('connect.sid');
     res.json({ message: 'Logged out successfully' });
   });
 });

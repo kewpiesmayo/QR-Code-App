@@ -1,13 +1,11 @@
-
-
 .main-container {
   display: flex;
-  justify-content: space-between; /* Ensure space between container and qr-result */
-  gap: 20px; /* Adds a small gap between the two elements */
+  justify-content: space-between; 
+  gap: 20px; 
 }
 
 .container {
-  flex: 1; /* Takes up remaining space on the left */
+  flex: 1; 
   max-width: 500px;
   background: rgb(200, 212, 228);
   padding: 20px;
@@ -44,16 +42,16 @@ button {
 
 #qr-result {
   display: flex;
-  justify-content: center; /* Center the QR code horizontally */
-  align-items: center; /* Center the QR code vertically */
-  flex: 1; /* Takes up remaining space on the right */
+  justify-content: center;
+  align-items: center;
+  flex: 1;
   margin-top: 20px;
-  border: 1px solid #ccc; /* Border around qr-result */
-  padding: 10px; /* Optional padding for spacing inside the box */
+  border: 1px solid #ccc; 
+  padding: 10px; 
 }
 
 #qr-result img {
   max-width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  border: none; /* Remove the border around the image */
+  height: auto; 
+  border: none; 
 }
