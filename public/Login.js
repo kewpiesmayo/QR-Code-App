@@ -18,7 +18,7 @@ document.getElementById('login-btn').addEventListener('click', async () => {
   document.getElementById('status').innerText = result.message || result.error;
 
   if (res.ok) {
-    window.location.href = 'index.html'; // ✅ Redirect on successful login
+    window.location.href = 'index.html';
   }
 });
 
@@ -44,7 +44,7 @@ document.getElementById('signup-btn').addEventListener('click', async () => {
   document.getElementById('status').innerText = result.message || result.error;
 });
 
-// ✅ LOGOUT BUTTON HANDLER (moved OUTSIDE signup block)
+//LOGOUT BUTTON HANDLER
 const logoutBtn = document.getElementById('logout-btn');
 if (logoutBtn) {
   logoutBtn.addEventListener('click', async () => {
@@ -56,7 +56,7 @@ if (logoutBtn) {
 
       const result = await res.json();
       alert(result.message || result.error);
-      window.location.reload(); // Refresh to reflect logout
+      window.location.reload(); 
     } catch (err) {
       console.error('Logout failed:', err);
     }
